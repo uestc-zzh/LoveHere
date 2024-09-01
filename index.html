@@ -1,20 +1,45 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
-    <title>❤佳佳</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 添加视口元标签 -->
+    <title>我爱你</title>
     <meta name="language" content="zh-CN">
     <meta name="github" content="https://github.com/sun0225SUN/Awesome-Love-Code">
-    <meta name="describe" content="收集不易，您的star是我坚持的动力，同时也欢迎各位PR哦! ">
+    <meta name="describe" content="收集不易，您的star是我坚持的动力，同时也欢迎各位PR哦!">
     <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
     <link rel="stylesheet" href="css/demo.css" />
+    <style>
+        /* 添加一些基本的响应式样式 */
+        body {
+            font-size: 16px; /* 使用相对单位 */
+            line-height: 1.6; /* 增加行高 */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* 保证padding和border不影响宽度 */
+        }
+
+        .Text {
+            max-width: 90%; /* 使用百分比代替固定宽度 */
+            margin: auto;
+            padding: 20px;
+            text-align: center; /* 居中显示文本 */
+        }
+
+        img.gb {
+            max-width: 100%; /* 确保图片不会超出屏幕宽度 */
+            height: auto; /* 自动调整高度 */
+            display: block; /* 删除下方间隙 */
+            margin: 0 auto; /* 图片居中 */
+        }
+    </style>
 </head>
 
 <body>
-    <img src="images/xx.png" class="gb" />
-    <!--灰色的遮罩层-->
-    <!--Tz_gray start-->
+    <img src="images/xx.png" class="gb" alt="背景图片"/>
+    <!-- 灰色的遮罩层 -->
+    <!-- Tz_gray start -->
     <div id="Tz_gray">
         <div class="Text">
             <span class="say">我知道你是一个天真善良温柔的女孩</span><br>
@@ -32,9 +57,10 @@
             <span class="say">让我去爱你</span><br>
         </div>
     </div>
-    <!--Tz_gray end-->
+    <!-- Tz_gray end -->
     <audio src="MP3/2.mp3" id="Music"></audio>
-    <!--music end-->
+    <!-- music end -->
+
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script src="js/snowfall.jquery.js"></script>
     <script src="js/demo.js"></script>
@@ -56,7 +82,6 @@
             autoPlay();
         });
     </script>
-
 </body>
 
 </html>
