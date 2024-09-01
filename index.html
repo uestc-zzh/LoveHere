@@ -16,27 +16,6 @@
     <!--灰色的遮罩层-->
     <!--Tz_gray start-->
     <div id="Tz_gray">
-<!--        &lt;!&ndash;内容发表区&ndash;&gt;-->
-<!--        <div class="Con">-->
-<!--            <span class="col">颜色 <font></font> </span>-->
-<!--            <p class="txt" contenteditable="true"></p>-->
-<!--            <span class="but">清空再写</span>-->
-<!--            <ul>-->
-<!--                <li data-color="#FF8CDE">颜色 <font style="background-color:#ff8cde"></font>-->
-<!--                </li>-->
-<!--                <li data-color="#C59FFF" class="xz">颜色 <font style="background-color:#c59fff"></font>-->
-<!--                </li>-->
-<!--                <li data-color="#89ACFF">颜色 <font style="background-color:#89acff"></font>-->
-<!--                </li>-->
-<!--                <li data-color="#92FFC1">颜色 <font style="background-color:#92ffc1"></font>-->
-<!--                </li>-->
-<!--                <li data-color="#FFCC94">颜色 <font style="background-color:#ffcc94"></font>-->
-<!--                </li>-->
-<!--                <li data-color="#FFFFFF">颜色 <font style="background-color:#ffffff"></font>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--        &lt;!&ndash;内容发表区&ndash;&gt;-->
         <div class="Text">
             <span class="say">我知道你是一个天真善良温柔的女孩</span><br>
             <span class="say">真的希望自己能够配上你</span><br>
@@ -59,7 +38,25 @@
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script src="js/snowfall.jquery.js"></script>
     <script src="js/demo.js"></script>
-    </div>
+
+    <script>
+        // 微信网页中自动播放音频的解决方案
+        document.addEventListener('DOMContentLoaded', function () {
+            function autoPlay() {
+                var music = document.getElementById("Music");
+                music.play();
+            }
+
+            // 监听 WeixinJSBridgeReady 事件，在事件触发时播放音频
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                autoPlay();
+            }, false);
+
+            // 微信可能会阻止默认事件，所以这里再次调用
+            autoPlay();
+        });
+    </script>
+
 </body>
 
 </html>
