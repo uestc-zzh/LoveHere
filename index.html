@@ -1,118 +1,146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 添加视口元标签 -->
-    <title>❤佳佳 第100天</title>
-    <meta name="language" content="zh-CN">
-    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
-    <link rel="stylesheet" href="css/demo.css" />
-    <style>
-        /* 添加一些基本的响应式样式 */
-        body {
-            font-size: 16px; /* 使用相对单位 */
-            line-height: 1.6; /* 增加行高 */
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box; /* 保证padding和border不影响宽度 */
-        }
-
-        .Text {
-            max-width: 90%; /* 使用百分比代替固定宽度 */
-            margin: auto;
-            padding: 20px;
-            text-align: center; /* 居中显示文本 */
-        }
-
-        img.gb {
-            max-width: 100%; /* 确保图片不会超出屏幕宽度 */
-            height: auto; /* 自动调整高度 */
-            display: block; /* 删除下方间隙 */
-            margin: 0 auto; /* 图片居中 */
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>❤zj&zzh的爱情故事❤</title>
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/snowfall.jquery.js"></script>
 </head>
-
 <body>
-    <img src="images/xx.png" class="gb" alt="背景图片"/>
-    <!-- 灰色的遮罩层 -->
-    <!-- Tz_gray start -->
+    <!-- 背景图片容器 -->
+    <div class="img-container">
+        <img src="images/zjzzh1.jpg" alt="浪漫背景">
+    </div>
+    
+    <!-- 音频控制按钮 -->
+    <div class="audio-controls">
+        <button class="audio-toggle" id="audio-toggle">
+            <span class="play-icon">▶</span>
+            <span class="pause-icon" style="display:none;">||</span>
+        </button>
+    </div>
+    
+    <!-- 爱情计时器 -->
+    <div class="timer-container" id="love-timer">
+        我们相爱了: <span id="timer-display">0天0时0分0秒</span>
+    </div>
+    
+    <!-- 主内容容器 -->
     <div id="Tz_gray">
-        <div class="Text">
-            <span class="say">我 把爱铺成蓝天</span><br>
-            <span class="say">让不安的你 一抬头就看得见</span><br>
-            <span class="say">我 把心烧成火焰</span><br>
-            <span class="say">让怕黑的你 拥着温暖入眠</span><br>
-            <span class="say">我晓得 时间如雪</span><br>
-            <span class="say">有时候会覆盖一切</span><br>
-            <span class="say">但是真爱一如倔强</span><br>
-            <span class="say">会重生的绿叶</span><br>
-            <span class="say">第几个100天</span><br>
-            <span class="say">还是很有感觉</span><br>
-            <span class="say">用眼睛去素描</span><br>
-            <span class="say">你内心的世界</span><br>
-            <span class="say">第几个100天</span><br>
-            <span class="say">也像刚热恋</span><br>
-            <span class="say">两个人手一牵</span><br>
-            <span class="say">连命运都改变</span><br>
-            <span class="say">我 把心烧成火焰</span><br>
-            <span class="say">让怕黑的你 拥着温暖入眠</span><br>
-            <span class="say">我晓得 时间如雪</span><br>
-            <span class="say">有时候会覆盖一切</span><br>
-            <span class="say">但是真爱一如倔强</span><br>
-            <span class="say">会重生的绿叶</span><br>
-            <span class="say">第几个100天</span><br>
-            <span class="say">还是很有感觉</span><br>
-            <span class="say">用眼睛去素描</span><br>
-            <span class="say">你内心的世界</span><br>
-            <span class="say">第几个100天</span><br>
-            <span class="say">也像刚热恋</span><br>
-            <span class="say">两个人手一牵</span><br>
-            <span class="say">连命运都改变</span><br>
-            <span class="say">曾有的敏感脆弱</span><br>
-            <span class="say">在我的胸口 你就躺下来别说了</span><br>
-            <span class="say">将有的固执冲动</span><br>
-            <span class="say">我也会拥抱你安抚着</span><br>
-            <span class="say">体谅你心疼着</span><br>
-            <span class="say">Wooh.... Yeah....</span><br>
-            <span class="say">第几个100天</span><br>
-            <span class="say">越来越有感觉</span><br>
-            <span class="say">用眼睛去素描</span><br>
-            <span class="say">你内心的世界</span><br>
-            <span class="say">管过多少100天</span><br>
-            <span class="say">也像刚热恋</span><br>
-            <span class="say">两个人手一牵</span><br>
-            <span class="say">连命运都改变</span><br>
-            <span class="say">当守护变信念</span><br>
-            <span class="say">连泪水 都很甜</span><br>
+        <!-- 照片画廊 -->
+        <div class="photo-gallery">
+            <!-- 照片轮播 -->
+            <div class="photo-carousel" id="photo-carousel">
+                <!-- 轮播控制按钮 -->
+                <div class="carousel-controls">
+                    <button class="control-btn prev-btn" id="prev-btn">‹</button>
+                    <button class="control-btn next-btn" id="next-btn">›</button>
+                </div>
+                
+                <!-- 轮播图片 -->
+                <div class="carousel-slide active">
+                    <img src="images/photos/zjzzh.jpg" alt="我们的第一张照片">
+                    <div class="photo-caption">初次相遇，一见倾心</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/photos/微信图片_20251122171412_12_102.jpg" alt="美好时光">
+                    <div class="photo-caption">每一刻都值得珍藏</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/photos/微信图片_20251122171417_13_102.jpg" alt="浪漫瞬间">
+                    <div class="photo-caption">有你在，每一天都很特别</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/photos/微信图片_20251122171423_14_102.jpg" alt="幸福时刻">
+                    <div class="photo-caption">幸福就是和你在一起</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/photos/微信图片_20251122171429_15_102.jpg" alt="美好记忆">
+                    <div class="photo-caption">这些回忆，我会永远珍藏</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/photos/微信图片_20251122171435_16_102.jpg" alt="爱的旅程">
+                    <div class="photo-caption">爱的旅程，我们一起走</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/photos/微信图片_20251122171440_17_102.jpg" alt="甜蜜时光">
+                    <div class="photo-caption">甜蜜时光，与你分享</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/photos/微信图片_20251122171446_18_102.jpg" alt="心有灵犀">
+                    <div class="photo-caption">心有灵犀，一点就通</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/photos/微信图片_20251122171455_19_102.jpg" alt="相濡以沫">
+                    <div class="photo-caption">相濡以沫，携手一生</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/photos/微信图片_20251122171501_20_102.jpg" alt="未来可期">
+                    <div class="photo-caption">未来可期，因为有你</div>
+                </div>
+            </div>
+            
+            <!-- 浪漫配文 -->
+            <div class="Text" data-title="zj&zzh的爱情故事">
+                <p>亲爱的佳佳，每当我看到这些照片，心中都会涌起无限的感动和温暖。</p>
+                <p>从相遇的那一刻起，我的生命因为有了你而变得更加完整和美好。</p>
+                <p>每一张照片都记录着我们共同走过的路，每一个笑容都铭刻在我的心中。</p>
+                <p>谢谢你陪我度过的每一天，谢谢你给我的爱和包容。</p>
+                <p>我希望我们的爱情能够像这些照片一样，永远鲜活，永不褪色。</p>
+                <p>未来的路还很长，但只要有你在身边，我就充满了勇气和力量。</p>
+                <p>我爱你，不仅是今天，而是每一天，直到永远...</p>
+            </div>
         </div>
     </div>
-    <!-- Tz_gray end -->
-    <audio src="MP3/dijigeyibaitian.mp3" id="Music"></audio>
-    <!-- music end -->
-
-    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-    <script src="js/snowfall.jquery.js"></script>
+    
+    <!-- 音频播放元素 -->
+    <audio id="music" preload="auto" loop>
+        <source src="MP3/dijigeyibaitian.mp3" type="audio/mpeg">
+        您的浏览器不支持音频播放
+   </audio>
+    
+    <!-- 歌词显示区域 -->
+    <div class="lyrics-container" id="lyrics-container">
+        <div class="lyric-line active" id="current-lyric">点击屏幕播放音乐，聆听我们的歌</div>
+    </div>
+    
+    <!-- 引入JavaScript文件 -->
     <script src="js/demo.js"></script>
-
+    
+    <!-- 微信音频播放处理 -->
     <script>
-        // 微信网页中自动播放音频的解决方案
-        document.addEventListener('DOMContentLoaded', function () {
-            function autoPlay() {
-                var music = document.getElementById("Music");
-                music.play();
+        document.addEventListener('DOMContentLoaded', function() {
+            // 当页面加载完成时，尝试播放音乐
+            const audio = document.getElementById('music');
+            
+            // 为用户交互事件绑定播放音乐函数
+            function playAudio() {
+                audio.play().catch(function(e) {
+                    console.log('音频播放失败:', e);
+                });
+                // 移除事件监听器，避免多次触发
+                document.removeEventListener('touchstart', playAudio);
+                document.removeEventListener('click', playAudio);
             }
-
-            // 监听 WeixinJSBridgeReady 事件，在事件触发时播放音频
-            document.addEventListener("WeixinJSBridgeReady", function () {
-                autoPlay();
-            }, false);
-
-            // 微信可能会阻止默认事件，所以这里再次调用
-            autoPlay();
+            
+            // 添加用户交互事件监听
+            document.addEventListener('touchstart', playAudio);
+            document.addEventListener('click', playAudio);
+        });
+        
+        // 微信环境音频自动播放
+        document.addEventListener('WeixinJSBridgeReady', function() {
+            WeixinJSBridge.invoke('getNetworkType', {}, function() {
+                WeixinJSBridge.on('menu:share:appmessage', function() {
+                    document.getElementById('music').play();
+                });
+                WeixinJSBridge.on('menu:share:timeline', function() {
+                    document.getElementById('music').play();
+                });
+            });
         });
     </script>
 </body>
-
 </html>

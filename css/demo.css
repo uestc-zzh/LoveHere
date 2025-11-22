@@ -1,252 +1,309 @@
-/*通用初始化样式*/
+/* 爱情主题样式 - 移动端优先 */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body, div, p, h1, h2, h3, h4, h5, h6, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, table, th, td {
-    margin: 0;
-    padding: 0;
+/* 设置根字体大小 - 移动端优化 */
+:root {
+    --primary-color: #ff6b8b;
+    --secondary-color: #9c27b0;
+    --accent-color: #ffd700;
+    --text-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --font-main: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    --font-title: 'Segoe UI', 'Microsoft YaHei', cursive, sans-serif;
+    font-size: 16px;
 }
 
-body, button, input, select, textarea {
-    font: 12px/24px Arial, 'Microsoft Yahei', "宋体", sans-serif;
+/* 基础样式重置 - 移动端优化 */
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background-attachment: fixed;
+    -webkit-tap-highlight-color: transparent;
 }
 
-address, cite, em, i {
-    font-style: normal;
-}
-
-small {
-    font-size: 12px;
-}
-
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-legend {
-    color: #000;
-}
-
-fieldset, img {
-    border: 0;
-}
-
-button, input, select, textarea {
-    font-size: 100%;
-    line-height: normal;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-input[type="button"], input[type="submit"], input[type="reset"] {
-    cursor: pointer;
-}
-
-iframe {
-    display: block;
-}
-
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-}
-
-.clearfix {
-    zoom: 1;
-}
-
-/*正文样式*/
-* {
-    margin: 0px;
-    padding: 0px;
-}
-
+/* 浪漫渐变背景 */
 body {
-    background-image: url("../images/zjzzh1.jpg");
-    background-position: top center; /* 调整背景图片的位置为顶部居中 */
-    background-size: cover; /* 背景图片覆盖整个页面 */
-    /*background-repeat: no-repeat;*/
+    position: relative;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+/* 背景动画 */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 背景图片容器 */
+.img-container {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    margin: 0; /* 移除默认的body外边距 */
-    padding: 0; /* 移除默认的body内边距 */
-    overflow-y: auto; /* 允许垂直方向滚动 */
+    z-index: -1;
+    opacity: 0.3;
 }
 
-/*img.gb {*/
-/*    position: fixed; !*固定*!*/
-/*    left: 45%;*/
-/*    top: 0px;*/
-/*    -webkit-animation: bd 5s ease-in-out infinite; !*动画名称 时间 运动速度 永远无限*!*/
-/*}*/
-img.gb {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        -webkit-animation: bd 5s ease-in-out infinite; /*动画名称 时间 运动速度 永远无限*/
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-@-webkit-keyframes bd {
-    0% {
-        -webkit-transform: rotate(30deg);
-        -webkit-transform-origin: center top;
-    }
-    50% {
-        -webkit-transform: rotate(-30deg);
-        -webkit-transform-origin: center top;
-    }
-    100% {
-        -webkit-transform: rotate(30deg);
-        -webkit-transform-origin: center top;
-    }
-}
-
+/* 主容器样式 - 移动端优化 */
 #Tz_gray {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    /*position: fixed; !*固定*!*/
-    position: absolute; /* 太长允许滚动 */
-    left: 0px;
-    top: 0px;
-    display: none;
-    overflow-y: auto; /* 添加此行允许滚动 */
+    background: rgba(156, 39, 176, 0.2);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    z-index: 10;
+    transition: all 1s ease;
 }
 
-.Con {
-    width: 560px;
-    height: 30px;
-    position: fixed;
-    left: 50%;
-    margin-left: -280px;
-    bottom: 130px;
-}
-
-.Con span.col {
-    width: 80px;
-    height: 30px;
-    background: #f3f3f3;
-    display: block; /*块级元素*/
-    float: left;
-    border-radius: 4px 0px 0px 4px;
-    font-size: 12px;
-    line-height: 30px;
-    text-indent: 10px; /*首行缩进*/
-}
-
-.Con p.txt {
-    width: 400px;
-    overflow: hidden;
-    height: 30px;
-    background: #ffffff;
-    float: left;
-    line-height: 28px;
-}
-
-.Con span.but {
-    width: 80px;
-    height: 30px;
-    background: #f4354b;
-    display: block;
-    float: left;
-    font-size: 12px;
-    color: #ffffff;
-    text-align: center; /*水平居中*/
-    line-height: 30px;
-    border-radius: 0px 4px 4px 0px;
-    cursor: pointer;
-}
-
-.Con span.col font {
-    width: 10px;
-    height: 10px;
-    display: block;
-    background: #ff7182;
-    position: absolute; /*绝对定位*/
-    top: 9px;
-    left: 40px;
-    border: 1px solid #000000 /*粗细 风格 颜色*/;
-}
-
-.Con ul {
-    width: 80px;
-    position: absolute;
-    bottom: 28px;
-    left: 0px;
-    display: none;
-}
-
-.Con ul li {
-    list-style-type: none; /*去掉圆点*/
-    width: 80px;
-    height: 30px;
-    font-size: 12px;
-    line-height: 30px;
-    text-indent: 10px;
-    background: #f3f3f3;
+/* 内容容器 - 移动端优化 */
+.Text {
     position: relative;
-}
-
-.Con ul li font {
-    width: 10px;
-    height: 10px;
-    border: 1px solid #000000;
-    display: block;
-    position: absolute;
-    top: 10px;
-    left: 40px;
-}
-
-#Tz_gray .Text {
-    width: 600px;
-    height: 500px;
-    margin: 100px auto; /*水平居中*/
-    color: #ffa9b7;
-    font-size: 20px;
-    line-height: 40px;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     text-align: center;
-    border-radius: 10px; /* 让背景有圆角 */
+    z-index: 20;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.snowfall-flakes { /*.class类选择器*/
+/* 标题样式 - 移动端优化 */
+.Text::before {
+    content: attr(data-title);
+    display: block;
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px var(--shadow-color);
+    animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* 照片画廊容器 - 新增 */
+.photo-gallery {
+    width: 100%;
+    padding: 20px;
+    z-index: 20;
+}
+
+/* 照片轮播容器 - 新增 */
+.photo-carousel {
     position: relative;
-    width: 20px !important;
-    height: 18px !important;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    margin-bottom: 20px;
 }
 
-.snowfall-flakes:before, .snowfall-flakes:after {
-    content: ""; /*不管有没有内容都必须写这句*/
-    width: 10px;
-    height: 16px;
+.carousel-slide {
     position: absolute;
-    background: #ff615f;
-    display: block; /*块级元素*/
-    border-radius: 10px 10px 0 0; /*圆角:左上 右上 右下 左下*/
-    transform: rotate(-45deg); /*css3变换:旋转*/
-    left: 10px; /*方位值:距离参考物左端的距离*/
-    top: 0px; /*距离参考物上端的距离*/
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
 }
 
-.snowfall-flakes:before {
-    transform: rotate(45deg);
-    left: 14px;
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 照片说明文字 - 新增 */
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    z-index: 10;
+}
+
+/* 轮播控制按钮 - 新增 */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 20;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+/* 歌词显示区域 - 小空间滚动显示 - 新增 */
+.lyrics-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    z-index: 30;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.lyrics-container .lyric-line {
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+}
+
+.lyrics-container .lyric-line.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 爱情计时器 - 移动端优化 */
+.timer-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    z-index: 40;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 音频控制按钮 - 移动端优化 */
+.audio-controls {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 40;
+}
+
+.audio-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.audio-toggle:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+/* 媒体查询 - 平板和桌面端适配 */
+@media screen and (min-width: 768px) {
+    :root {
+        font-size: 18px;
+    }
+    
+    .Text::before {
+        font-size: 2rem;
+    }
+    
+    .photo-carousel {
+        height: 70vh;
+        max-width: 800px;
+        margin: 0 auto 30px;
+    }
+    
+    .lyrics-container {
+        width: 70%;
+        max-width: 600px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .Text {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+        border-radius: 20px;
+    }
+    
+    .photo-gallery {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px;
+    }
 }
